@@ -35,7 +35,9 @@ gem "jbuilder"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
-
+group :production do
+gem 'pg', '1.1.4'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
@@ -47,6 +49,11 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+group :development, :test do
+# gem 'sqlite3', '1.4'
+gem 'byebug', '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
+end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -70,3 +77,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
